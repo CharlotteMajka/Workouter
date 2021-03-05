@@ -15,7 +15,7 @@ pipeline {
         stage("Release to staging") {
             steps {
                 sh "docker-compose pull"
-                sh "docker-compose up"
+                sh "docker-compose up -d"
             }
         }
     }
