@@ -8,6 +8,7 @@ services:
     environment: 
       ACCEPT_EULA: Y
       SA_PASSWORD: "HelloW0rld"
+     
   
   application:
     image: lechampdk/workouter
@@ -17,3 +18,11 @@ services:
       - mssql-db
     ports: 
       - 21001:80
+
+      flyway:
+        image: flyway/flyway
+        command: migrate
+        volumes: 
+          - ./db:/flyway/sql
+          - ./db:/flyway/conf
+          depends_on: mssql-db
