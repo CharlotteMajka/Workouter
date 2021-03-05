@@ -19,10 +19,10 @@ services:
     ports: 
       - 21001:80
 
-  flyway:
-    image: flyway/flyway
-    command: migrate
-    volumes: 
-      - ./db:/flyway/sql
-      - ./db:/flyway/conf
-     depends_on: mssql-db
+flyway:
+image: flyway/flyway
+command: migrate
+volumes:
+- ./db:/flyway/sql
+- ./db:/flyway/conf
+depends_on: mssql-db
