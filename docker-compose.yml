@@ -25,4 +25,5 @@ services:
     volumes:
       - ./db:/flyway/sql
       - ./db:/flyway/conf
-    depends_on: mssql-db
+    depends_on: 
+      - mssql-db
